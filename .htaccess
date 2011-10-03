@@ -1,0 +1,229 @@
+#
+# Apache/PHP/Drupal settings:
+#
+#CUSTOM: Force PHP5.3, instead of Site5 default of PHP5.2: added by BL on 03-02-2011
+#Details: http://www.site5.com/blog/programming/php/php-5-3-is-now-available-at-site5/20101015/
+AddHandler application/x-httpd-php53 .php
+# Protect files and directories from prying eyes.
+<FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(\..*|Entries.*|Repository|Root|Tag|Template)$">
+  Order allow,deny
+</FilesMatch>
+
+# Don't show directory listings for URLs which map to a directory.
+Options -Indexes
+
+# Follow symbolic links in this directory.
+Options +FollowSymLinks
+
+# Make Drupal handle any 404 errors.
+ErrorDocument 404 /index.php
+
+# Force simple error message for requests for non-existent favicon.ico.
+<Files favicon.ico>
+  # There is no end quote below, for compatibility with Apache 1.3.
+  ErrorDocument 404 "The requested file favicon.ico was not found.
+</Files>
+
+# Set the default handler.
+DirectoryIndex index.php index.html index.htm
+
+# Override PHP settings that cannot be changed at runtime. See
+# sites/default/default.settings.php and drupal_initialize_variables() in
+# includes/bootstrap.inc for settings that can be changed at runtime.
+
+# PHP 5, Apache 1 and 2.
+<IfModule mod_php5.c>
+  php_flag magic_quotes_gpc                 off
+  php_flag magic_quotes_sybase              off
+  php_flag register_globals                 off
+  php_flag session.auto_start               off
+  php_value mbstring.http_input             pass
+  php_value mbstring.http_output            pass
+  php_flag mbstring.encoding_translation    off
+</IfModule>
+
+# Requires mod_expires to be enabled.
+<IfModule mod_expires.c>
+  # Enable expirations.
+  ExpiresActive On
+
+  # Cache all files for 2 weeks after access (A).
+  ExpiresDefault A1209600
+
+  <FilesMatch \.php$>
+    # Do not allow PHP scripts to be cached unless they explicitly send cache
+    # headers themselves. Otherwise all scripts would have to overwrite the
+    # headers set by mod_expires if they want another caching behavior. This may
+    # fail if an error occurs early in the bootstrap process, and it may cause
+    # problems if a non-Drupal PHP file is installed in a subdirectory.
+    ExpiresActive Off
+  </FilesMatch>
+</IfModule>
+
+# Various rewrite rules.
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  # Block access to "hidden" directories whose names begin with a period. This
+  # includes directories used by version control systems such as Subversion or
+  # Git to store control files. Files whose names begin with a period, as well
+  # as the control files used by CVS, are protected by the FilesMatch directive
+  # above.
+  #
+  # NOTE: This only works when mod_rewrite is loaded. Without mod_rewrite, it is
+  # not possible to block access to entire directories from .htaccess, because
+  # <DirectoryMatch> is not allowed here.
+  #
+  # If you do not have mod_rewrite installed, you should remove these
+  # directories from your webroot or otherwise protect them from being
+  # downloaded.
+  RewriteRule "(^|/)\." - [F]
+
+  # If your site can be accessed both with and without the 'www.' prefix, you
+  # can use one of the following settings to redirect users to your preferred
+  # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
+  #
+  # To redirect all users to access the site WITH the 'www.' prefix,
+  # (http://example.com/... will be redirected to http://www.example.com/...)
+  # uncomment the following:
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  #
+  # To redirect all users to access the site WITHOUT the 'www.' prefix,
+  # (http://www.example.com/... will be redirected to http://example.com/...)
+  # uncomment the following:
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ http://%1%{REQUEST_URI} [L,R=301]
+
+  # Modify the RewriteBase if you are using Drupal in a subdirectory or in a
+  # VirtualDocumentRoot and the rewrite rules are not working properly.
+  # For example if your site is at http://example.com/drupal uncomment and
+  # modify the following line:
+  # RewriteBase /drupal
+  #
+  # If your site is running in a VirtualDocumentRoot at http://example.com/,
+  # uncomment the following line:
+  # RewriteBase /
+
+  # Pass all requests not referring directly to files in the filesystem to
+  # index.php. Clean URLs are handled in drupal_environment_initialize().
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !=/favicon.ico
+  RewriteRule ^ index.php [L]
+
+  # Rules to correctly serve gzip compressed CSS and JS files.
+  # Requires both mod_rewrite and mod_headers to be enabled.
+  <IfModule mod_headers.c>
+    # Serve gzip compressed CSS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.css $1\.css\.gz [QSA]
+
+    # Serve gzip compressed JS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.js $1\.js\.gz [QSA]
+
+    # Serve correct content types, and prevent mod_deflate double gzip.
+    RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
+    RewriteRule \.js\.gz$ - [T=text/javascript,E=no-gzip:1]
+
+    <FilesMatch "(\.js\.gz|\.css\.gz)$">
+      # Serve correct encoding type.
+      Header append Content-Encoding gzip
+      # Force proxies to cache gzipped & non-gzipped css/js files separately.
+      Header append Vary Accept-Encoding
+    </FilesMatch>
+  </IfModule>
+</IfModule>
+
+
+
+#Redirects from OLD site links 
+Redirect 301 /index.shtml /index.php
+Redirect 301 /old/index.html /index.php
+Redirect 301 /books.shtml /books
+Redirect 301 /right.html /index.php
+
+Redirect 301 /docs/startover/fishless.shtml /fishless-cycling
+
+Redirect 301 /docs/algae/cyano.shtml /cyanobacteria
+Redirect 301 /docs/algae/tonealg.shtml /about-algae
+Redirect 301 /docs/algae/algcont.shtml /about-algae
+Redirect 301 /docs/algae/hazy.shtml /freshwater-plankton-bloom
+Redirect 301 /docs/algae/diatoms.shtml /diatoms
+Redirect 301 /docs/algae/green.shtml /green-algae
+
+Redirect 301 /docs/aquascaping/wood.shtml /wood
+Redirect 301 /docs/aquascaping/rocks.shtml /rocks
+Redirect 301 /docs/aquascaping/aquapref.shtml /aquascaping
+
+Redirect 301 /docs/biofilm/surscum.shtml /neuston
+Redirect 301 /docs/biofilm/devbio.shtml /maturing-biofilm
+
+Redirect 301 /docs/filtration/softening.shtml /water-softening
+Redirect 301 /docs/filtration/filmed2.shtml /about-filtration
+Redirect 301 /docs/filtration/plenum.shtml /freshwater-plenum
+
+Redirect 301 /docs/fishes/catfishes.shtml /catfishes
+Redirect 301 /docs/fishes/cichlids.shtml /cichlids
+Redirect 301 /docs/fishes/loaches.shtml /loaches
+Redirect 301 /docs/fishes/barbs.shtml /barbs
+
+Redirect 301 /docs/nutrient/phosyc.shtml /phosphate-cycle
+Redirect 301 /docs/nutrient/sulfint.shtml /sulfate-sulfide-cycle
+Redirect 301 /docs/nutrient/nitcyc.shtml /nitrogen-cycle
+
+Redirect 301 /docs/substrate/whatnot2.shtml /deprecated-substrates
+Redirect 301 /docs/substrate/gravel.shtml /substrate
+Redirect 301 /docs/substrate/whatnot.shtml /deprecated-substrates
+
+Redirect 301 /docs/health/hydper.shtml /hydrogen-peroxide
+Redirect 301 /docs/health/nematodes.shtml /parasites-nematodes
+Redirect 301 /docs/health/potper.shtml /potassium-permanganate
+Redirect 301 /docs/health/ich.shtml /ichthyophthirius
+Redirect 301 /docs/health/ich.shtml0 /ichthyophthirius
+Redirect 301 /docs/health/salt.shtml /salt
+Redirect 301 /docs/health/othprotist.shtml /parasites-other-protists
+Redirect 301 /docs/health/bactin.shtml /bacterial-infections
+Redirect 301 /docs/health/helman.shtml /health-management 
+Redirect 301 /docs/health/trematodes.shtml /parasites-flukes
+Redirect 301 /docs/health/othmed.shtml /other-medications
+Redirect 301 /docs/health/fungin.shtm /fungal-infections
+Redirect 301 /docs/health/copsul.shtml /copper-sulfate
+Redirect 301 /docs/health /health-management
+
+
+Redirect 301 /docs/invertebrates/nematodes2.shtml /parasites-nematodes
+Redirect 301 /docs/invertebrates/hydra.shtml /hydra
+
+Redirect 301 /docs/feeding/blackworms.shtml /lumbriculus
+Redirect 301 /docs/feeding/vegetables.shtml /vegetables
+Redirect 301 /docs/feeding/tubifex2.shtml /tubifex
+Redirect 301 /docs/feeding/vinegareel.shtml /turbatrix
+Redirect 301 /docs/feeding/brinesh.shtml /brine-shrimp
+
+
+
+Redirect 301 /docs/setup/sealants.shtml /aquarium-sealants
+
+Redirect 301 /docs/water/conditioners.shtml /water-conditioners
+Redirect 301 /docs/water/bioacid.shtml /bioacidification
+Redirect 301 /docs/water/tetkit.shtml /water-testing
+Redirect 301 /docs/water/alkaline.shtml /alkalinity
+Redirect 301 /docs/water/chlorine.shtml /chlorine-chloramine
+Redirect 301 /docs/water/electrolytes.shtml /electrolytes
+Redirect 301 /docs/water/humic.shtml /humic-acids
+
+Redirect 301 /docs/energy/trophic.shtml /trophic-web 
+
+
+
+#Redirects from content removed from new site
+Redirect 301 /crustaceans /arthropods
+
+
+
+
+
