@@ -157,14 +157,17 @@ Redirect 301 /docs/algae/green.shtml /green-algae
 
 Redirect 301 /docs/aquascaping/wood.shtml /wood
 Redirect 301 /docs/aquascaping/rocks.shtml /rocks
+Redirect 301 /docs/aquascaping/rocks.shtm /rocks
 Redirect 301 /docs/aquascaping/aquapref.shtml /aquascaping
 
 Redirect 301 /docs/biofilm/surscum.shtml /neuston
 Redirect 301 /docs/biofilm/devbio.shtml /maturing-biofilm
+Redirect 301 /docs/biofilm/molds.shtml /biofilm-fungi
 
 Redirect 301 /docs/filtration/softening.shtml /water-softening
 Redirect 301 /docs/filtration/filmed2.shtml /about-filtration
 Redirect 301 /docs/filtration/plenum.shtml /freshwater-plenum
+Redirect 301 /docs/filtration/filmed.shtml /about-filtration
 
 Redirect 301 /docs/fishes/catfishes.shtml /catfishes
 Redirect 301 /docs/fishes/cichlids.shtml /cichlids
@@ -197,12 +200,14 @@ Redirect 301 /docs/health /health-management
 
 Redirect 301 /docs/invertebrates/nematodes2.shtml /parasites-nematodes
 Redirect 301 /docs/invertebrates/hydra.shtml /hydra
+Redirect 301 /docs/invertebrates/flatworms.shtml /planaria
 
 Redirect 301 /docs/feeding/blackworms.shtml /lumbriculus
 Redirect 301 /docs/feeding/vegetables.shtml /vegetables
 Redirect 301 /docs/feeding/tubifex2.shtml /tubifex
 Redirect 301 /docs/feeding/vinegareel.shtml /turbatrix
 Redirect 301 /docs/feeding/brinesh.shtml /brine-shrimp
+Redirect 301 /docs/feeding/infusoria.shtml /infusoria
 
 
 
