@@ -16002,3 +16002,5 @@
 [22-Aug-2011 08:40:25] PHP Warning:  PHP Startup: Unable to load dynamic library 'ixed/ixed.5.3.lin' - ixed/ixed.5.3.lin: cannot open shared object file: No such file or directory in Unknown on line 0
 [22-Aug-2011 08:41:53] PHP Warning:  PHP Startup: Unable to load dynamic library 'ixed/ixed.5.3.lin' - ixed/ixed.5.3.lin: cannot open shared object file: No such file or directory in Unknown on line 0
 [07-Oct-2011 20:28:27] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1303109 bytes) in /home/brettlyo/public_html/skepticalaquarist/modules/menu/menu.admin.inc on line 250
+[09-Oct-2011 15:21:23] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1307690 bytes) in /home/brettlyo/public_html/skepticalaquarist/modules/menu/menu.admin.inc on line 250
+[10-Oct-2011 22:29:18] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1313823 bytes) in /home/brettlyo/public_html/skepticalaquarist/includes/theme.inc on line 1248
