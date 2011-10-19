@@ -16004,3 +16004,7 @@
 [07-Oct-2011 20:28:27] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1303109 bytes) in /home/brettlyo/public_html/skepticalaquarist/modules/menu/menu.admin.inc on line 250
 [09-Oct-2011 15:21:23] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1307690 bytes) in /home/brettlyo/public_html/skepticalaquarist/modules/menu/menu.admin.inc on line 250
 [10-Oct-2011 22:29:18] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1313823 bytes) in /home/brettlyo/public_html/skepticalaquarist/includes/theme.inc on line 1248
+[16-Oct-2011 00:59:13] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1313881 bytes) in /home/brettlyo/public_html/skepticalaquarist/includes/theme.inc on line 1248
+[17-Oct-2011 21:12:04] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1312712 bytes) in /home/brettlyo/public_html/skepticalaquarist/modules/menu/menu.admin.inc on line 250
+[17-Oct-2011 21:12:22] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1314008 bytes) in /home/brettlyo/public_html/skepticalaquarist/includes/theme.inc on line 1248
+[18-Oct-2011 05:33:32] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1314039 bytes) in /home/brettlyo/public_html/skepticalaquarist/includes/theme.inc on line 1248

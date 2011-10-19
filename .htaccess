@@ -147,6 +147,7 @@ Redirect 301 /books.shtml /books
 Redirect 301 /right.html /index.php
 
 Redirect 301 /docs/startover/fishless.shtml /fishless-cycling
+Redirect 301 /docs/startover/startover.shtml /starting-over
 
 Redirect 301 /docs/algae/cyano.shtml /cyanobacteria
 Redirect 301 /docs/algae/tonealg.shtml /about-algae
@@ -177,6 +178,8 @@ Redirect 301 /docs/fishes/barbs.shtml /barbs
 Redirect 301 /docs/nutrient/phosyc.shtml /phosphate-cycle
 Redirect 301 /docs/nutrient/sulfint.shtml /sulfate-sulfide-cycle
 Redirect 301 /docs/nutrient/nitcyc.shtml /nitrogen-cycle
+Redirect 301 /docs/nutrient/iron.shtml /ferrous-ferric
+Redirect 301 /docs/nutrient/wincol.shtml /winogradsky-column
 
 Redirect 301 /docs/substrate/whatnot2.shtml /deprecated-substrates
 Redirect 301 /docs/substrate/gravel.shtml /substrate
@@ -208,6 +211,7 @@ Redirect 301 /docs/feeding/tubifex2.shtml /tubifex
 Redirect 301 /docs/feeding/vinegareel.shtml /turbatrix
 Redirect 301 /docs/feeding/brinesh.shtml /brine-shrimp
 Redirect 301 /docs/feeding/infusoria.shtml /infusoria
+Redirect 301 /docs/feeding/daphnia.shtml /daphnia
 
 
 
