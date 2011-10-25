@@ -145,9 +145,8 @@ Redirect 301 /index.shtml /index.php
 Redirect 301 /old/index.html /index.php
 Redirect 301 /books.shtml /books
 Redirect 301 /right.html /index.php
+Redirect 301 /top.html /index.php
 
-Redirect 301 /docs/startover/fishless.shtml /fishless-cycling
-Redirect 301 /docs/startover/startover.shtml /starting-over
 
 Redirect 301 /docs/algae/cyano.shtml /cyanobacteria
 Redirect 301 /docs/algae/tonealg.shtml /about-algae
@@ -164,26 +163,34 @@ Redirect 301 /docs/aquascaping/aquapref.shtml /aquascaping
 Redirect 301 /docs/biofilm/surscum.shtml /neuston
 Redirect 301 /docs/biofilm/devbio.shtml /maturing-biofilm
 Redirect 301 /docs/biofilm/molds.shtml /biofilm-fungi
+Redirect 301 /docs/biofilm/yeasts.shtml /biofilm-yeasts
+
+Redirect 301 /docs/energy/trophic.shtml /trophic-web 
+Redirect 301 /docs/energy/decomp.shtml /decomposers 
+
+Redirect 301 /docs/feeding/blackworms.shtml /lumbriculus
+Redirect 301 /docs/feeding/vegetables.shtml /vegetables
+Redirect 301 /docs/feeding/tubifex2.shtml /tubifex
+Redirect 301 /docs/feeding/vinegareel.shtml /turbatrix
+Redirect 301 /docs/feeding/brinesh.shtml /brine-shrimp
+Redirect 301 /docs/feeding/infusoria.shtml /infusoria
+Redirect 301 /docs/feeding/daphnia.shtml /daphnia
+Redirect 301 /docs/feeding/bloodworms.shtml /chironomids
 
 Redirect 301 /docs/filtration/softening.shtml /water-softening
 Redirect 301 /docs/filtration/filmed2.shtml /about-filtration
 Redirect 301 /docs/filtration/plenum.shtml /freshwater-plenum
 Redirect 301 /docs/filtration/filmed.shtml /about-filtration
+Redirect 301 /docs/filtration/chemfil.shtml /chemical-filtration
 
 Redirect 301 /docs/fishes/catfishes.shtml /catfishes
 Redirect 301 /docs/fishes/cichlids.shtml /cichlids
 Redirect 301 /docs/fishes/loaches.shtml /loaches
 Redirect 301 /docs/fishes/barbs.shtml /barbs
+Redirect 301 /docs/fishes/pronounce.shtml /pronunciation
+Redirect 301 /docs/fishes/labyrinth.shtml /anabantoids
+Redirect 301 /docs/fishes/fishdex.shtml /fishes
 
-Redirect 301 /docs/nutrient/phosyc.shtml /phosphate-cycle
-Redirect 301 /docs/nutrient/sulfint.shtml /sulfate-sulfide-cycle
-Redirect 301 /docs/nutrient/nitcyc.shtml /nitrogen-cycle
-Redirect 301 /docs/nutrient/iron.shtml /ferrous-ferric
-Redirect 301 /docs/nutrient/wincol.shtml /winogradsky-column
-
-Redirect 301 /docs/substrate/whatnot2.shtml /deprecated-substrates
-Redirect 301 /docs/substrate/gravel.shtml /substrate
-Redirect 301 /docs/substrate/whatnot.shtml /deprecated-substrates
 
 Redirect 301 /docs/health/hydper.shtml /hydrogen-peroxide
 Redirect 301 /docs/health/nematodes.shtml /parasites-nematodes
@@ -196,26 +203,36 @@ Redirect 301 /docs/health/bactin.shtml /bacterial-infections
 Redirect 301 /docs/health/helman.shtml /health-management 
 Redirect 301 /docs/health/trematodes.shtml /parasites-flukes
 Redirect 301 /docs/health/othmed.shtml /other-medications
-Redirect 301 /docs/health/fungin.shtm /fungal-infections
+Redirect 301 /docs/health/fungin.shtml /fungal-infections
 Redirect 301 /docs/health/copsul.shtml /copper-sulfate
-Redirect 301 /docs/health /health-management
-
+Redirect 301 /docs/health/viruses.shtml /viruses
+Redirect 301 /docs/health/toxic.shtml /toxic-contaminants
 
 Redirect 301 /docs/invertebrates/nematodes2.shtml /parasites-nematodes
 Redirect 301 /docs/invertebrates/hydra.shtml /hydra
 Redirect 301 /docs/invertebrates/flatworms.shtml /planaria
-
-Redirect 301 /docs/feeding/blackworms.shtml /lumbriculus
-Redirect 301 /docs/feeding/vegetables.shtml /vegetables
-Redirect 301 /docs/feeding/tubifex2.shtml /tubifex
-Redirect 301 /docs/feeding/vinegareel.shtml /turbatrix
-Redirect 301 /docs/feeding/brinesh.shtml /brine-shrimp
-Redirect 301 /docs/feeding/infusoria.shtml /infusoria
-Redirect 301 /docs/feeding/daphnia.shtml /daphnia
+Redirect 301 /docs/invertebrates/shrimp.shtml /freshwater-shrimp
+Redirect 301 /docs/invertebrates/snailpref.shtml /eliminating-snails
 
 
+Redirect 301 /docs/links/boards.shtml /boards-forums
 
-Redirect 301 /docs/setup/sealants.shtml /aquarium-sealants
+Redirect 301 /docs/nutrient/phosyc.shtml /phosphate-cycle
+Redirect 301 /docs/nutrient/sulfint.shtml /sulfate-sulfide-cycle
+Redirect 301 /docs/nutrient/nitcyc.shtml /nitrogen-cycle
+Redirect 301 /docs/nutrient/iron.shtml /ferrous-ferric
+Redirect 301 /docs/nutrient/wincol.shtml /winogradsky-column
+
+Redirect 301 /docs/plants/floating.shtml /floating-plants
+Redirect 301 /docs/plants/fertilizers.shtml /fertilizers
+
+
+Redirect 301 /docs/startover/fishless.shtml /fishless-cycling
+Redirect 301 /docs/startover/startover.shtml /starting-over
+
+Redirect 301 /docs/substrate/whatnot2.shtml /deprecated-substrates
+Redirect 301 /docs/substrate/gravel.shtml /substrate
+Redirect 301 /docs/substrate/whatnot.shtml /deprecated-substrates
 
 Redirect 301 /docs/water/conditioners.shtml /water-conditioners
 Redirect 301 /docs/water/bioacid.shtml /bioacidification
@@ -224,13 +241,18 @@ Redirect 301 /docs/water/alkaline.shtml /alkalinity
 Redirect 301 /docs/water/chlorine.shtml /chlorine-chloramine
 Redirect 301 /docs/water/electrolytes.shtml /electrolytes
 Redirect 301 /docs/water/humic.shtml /humic-acids
+Redirect 301 /docs/water/chelation.shtml /chelation
+Redirect 301 /docs/water/co2ph.shtml /dissolved-co2-ph
+Redirect 301 /docs/water/oxygen.shtml /dissolved-oxygen
 
-Redirect 301 /docs/energy/trophic.shtml /trophic-web 
 
 
 
 #Redirects from content removed from new site
 Redirect 301 /crustaceans /arthropods
+Redirect 301 /crusteaceans /arthropods
+Redirect 301 /docs/health /health-management
+
 
 
 
